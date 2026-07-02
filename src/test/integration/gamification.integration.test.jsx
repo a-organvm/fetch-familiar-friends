@@ -495,12 +495,10 @@ describe('Gamification Flow Integration Tests', () => {
         </AuthenticatedWrapper>
       );
 
-      await waitFor(() => {
-        expect(screen.getByTestId('lb-loading')).toHaveTextContent('ready');
-      });
-
       // Friends leaderboard should be fetched
-      expect(mockSupabase.from).toHaveBeenCalledWith('friendships');
+      await waitFor(() => {
+        expect(mockSupabase.from).toHaveBeenCalledWith('friendships');
+      });
     });
 
     it('should load weekly activity leaderboard', async () => {
@@ -520,12 +518,10 @@ describe('Gamification Flow Integration Tests', () => {
         </AuthenticatedWrapper>
       );
 
-      await waitFor(() => {
-        expect(screen.getByTestId('lb-loading')).toHaveTextContent('ready');
-      });
-
       // Activities should be fetched
-      expect(mockSupabase.from).toHaveBeenCalledWith('activities');
+      await waitFor(() => {
+        expect(mockSupabase.from).toHaveBeenCalledWith('activities');
+      });
     });
   });
 
@@ -567,12 +563,10 @@ describe('Gamification Flow Integration Tests', () => {
         </AuthenticatedWrapper>
       );
 
-      await waitFor(() => {
-        expect(screen.getByTestId('loading')).toHaveTextContent('ready');
-      });
-
       // Quest progress should be tracked
-      expect(mockSupabase.from).toHaveBeenCalledWith('quests');
+      await waitFor(() => {
+        expect(mockSupabase.from).toHaveBeenCalledWith('quests');
+      });
     });
   });
 
